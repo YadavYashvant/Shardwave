@@ -56,7 +56,8 @@ fun ShardwaveApp(viewModel: MainViewModel) {
     val catalog by viewModel.catalog.collectAsState()
     val selectedModel by viewModel.selectedModel.collectAsState()
     val swarmStats by viewModel.swarmStats.collectAsState()
-    val inferenceOutput by viewModel.inferenceOutput.collectAsState()
+    val activeMagnetLink by viewModel.activeMagnetLink.collectAsState()
+    val chatMessages by viewModel.chatMessages.collectAsState()
     val isGenerating by viewModel.isGenerating.collectAsState()
 
     CupertinoScaffold(
@@ -109,13 +110,15 @@ fun ShardwaveApp(viewModel: MainViewModel) {
                     }
                 )
                 1 -> CupertinoTransferScreen(
-                    stats = swarmStats
+                    stats = swarmStats,
+                    magnetLink = activeMagnetLink
                 )
                 2 -> CupertinoInferenceScreen(
                     selectedModel = selectedModel,
-                    output = inferenceOutput,
+                    chatMessages = chatMessages,
                     isGenerating = isGenerating,
-                    onRunInference = { viewModel.runInference(it) }
+                    onSendMessage = { viewModel.sendChatMessage(it) },
+                    onClearChat = { viewModel.clearChat() }
                 )
             }
         }
