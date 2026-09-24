@@ -13,3 +13,14 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Vendored C++ sources & build artifacts
+app/src/main/cpp/llama_cpp/
+
+# Model & Chunk files
+*.gguf
+*.chk
+*.torrent
+*.tmp
+*.bin
+shardwave_data/
