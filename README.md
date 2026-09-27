@@ -1,5 +1,7 @@
 # Shardwave — P2P On-Device AI Model Distribution
 
+⚠️ This project is still Under Development
+
 Shardwave is an Android application demonstrating peer-to-peer distribution of AI model weights (GGUF format) across a local device swarm using BitTorrent (libtorrent4j), with content-defined chunking (FastCDC) to transmit only delta updates between model versions, and direct hand-off into on-device inference via llama.cpp JNI bindings.
 
 ---
